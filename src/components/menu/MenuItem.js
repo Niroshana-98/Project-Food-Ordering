@@ -6,10 +6,10 @@ export default function MenuItem(){
             </div>    
             <h4 className="font-semibold text-xl my-3 text-gray-200">Pizza</h4>
             <p className="text-white text-sm hover:text-secondary hover:font-bold">
-                It is a type of pizza that is typically topped with pepperoni, a type of cured sausage.
+                Pizza Ganna wren yko mewa agata gunai
             </p>
             <button className="mt-4 bg-primary text-white rounded-full px-8 py-2 hover:bg-secondary hover:text-primary border-primary">
-                Add to cart $12
+                Rupiyal 100 Pizza
             </button>
         </div>
     );
