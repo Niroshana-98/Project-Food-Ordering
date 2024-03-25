@@ -17,7 +17,7 @@ export default function MenuItemsPage(){
     return(
         <section className="mt-8">
             <UserTabs isAdmin={true}/>
-            <Link href={'/menu-items/new'}>Create New Menu Items</Link>
+            <Link className="text-white" href={'/menu-items/new'}>Create New Menu Items</Link>
         </section>
     );
 }
