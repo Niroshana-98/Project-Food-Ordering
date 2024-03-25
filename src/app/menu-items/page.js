@@ -15,9 +15,16 @@ export default function MenuItemsPage(){
         return <p className="text-white">Not an Admin</p>;
     }
     return(
-        <section className="mt-8">
+        <section className="mt-8 max-w-md mx-auto">
             <UserTabs isAdmin={true}/>
-            <Link className="text-white" href={'/menu-items/new'}>Create New Menu Items</Link>
+            <div className="mt-8">
+                <Link
+                 className="button text-white" 
+                 href={'/menu-items/new'}>
+                    Create New Menu Items
+                </Link>
+            </div>
+            
         </section>
     );
 }
