@@ -1,7 +1,12 @@
-import {useProfile} from "@components/UseProfile";
+'use client';
+import {useProfile} from "@/components/UseProfile";
 import { data } from "autoprefixer";
+import { useState } from "react";
 import EditableImage from "@/components/layout/EditableImage";
 import UserTabs from "@/components/layout/UserTabs";
+import toast from "react-hot-toast";
+import Link from "next/link";
+import Right from "@/components/icons/Right";
 
 
 export default function NewMenuItemPage(){
@@ -45,6 +50,12 @@ export default function NewMenuItemPage(){
     return(
         <section className="mt-8">
             <UserTabs isAdmin={true} />
+            <div className="max-w-md mx-auto mt-8">
+                <Link href={'/menu-items'} className="button">
+                    <span>Show All Menu Items</span>
+                    <Right/>
+                </Link>
+            </div>
             <form onSubmit={handleFormSubmit} className="mt-8 max-w-md mx-auto">
                 <div
                  className="grid items-start gap-4" 
