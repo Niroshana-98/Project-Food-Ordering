@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import Link from "next/link";
 import Left from "@/components/icons/Left";
 import Right from "@/components/icons/Right";
+import {redirect} from "next/navigation";
 
 
 export default function NewMenuItemPage(){
@@ -16,6 +17,7 @@ export default function NewMenuItemPage(){
     const [name,setName] = useState('');
     const [description, setDescription] = useState('');
     const [basePrice,setBasePrice] = useState('');
+    const [redirectToItems, setRedirectToItems]=useState(false);
     const {loading, data} = useProfile();
 
     async function handleFormSubmit(ev){
@@ -37,7 +39,12 @@ export default function NewMenuItemPage(){
             success:'Saved',
             error:'Error',
         });
+
+        setRedirectToItems(true);
         
+    }
+    if(redirectToItems){
+        return redirect('/menu-items');
     }
 
     if(loading){

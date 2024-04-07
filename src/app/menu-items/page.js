@@ -1,13 +1,24 @@
 'use client';
 import { useProfile } from "@/components/UseProfile";
 import UserTabs from "@/components/layout/UserTabs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Right from "@/components/icons/Right";
+import Image from "next/image";
 
 export default function MenuItemsPage(){
 
+    const [menuItems, setMenuItems]=useState([]);
     const {loading, data} = useProfile();
+
+    useEffect(()=>{
+        fetch('/api/menu-items').then(res => {
+            res.json().then(menuItems=>{
+                setMenuItems(menuItems);
+            });
+        })
+    }, []);
+
     if(loading){
         return <p className="text-white">Loading User Data</p>;
     }
@@ -18,7 +29,7 @@ export default function MenuItemsPage(){
     return(
         <section className="mt-8 max-w-md mx-auto">
             <UserTabs isAdmin={true}/>
-            <div className="mt-8">
+            <div className="mt-8 mb-2">
                 <Link
                  className="button flex" 
                  href={'/menu-items/new'}>
@@ -26,7 +37,17 @@ export default function MenuItemsPage(){
                     <Right/>
                 </Link>
             </div>
-            
+            <div>
+                <h2 className="text-sm text-gray-100 mt-8">Edit Menu Item :</h2>
+                {menuItems?.length > 0 && menuItems.map((item, index) => (
+                    <Link href={'/menu-items/edit/'+item._id} key={index} className="button1 mb-1 text-black bg-white hover:bg-gray-500">
+                        <div className="relative w-6 h-6">
+                            <Image src={item.image} alt={''} layout={'fill'}/>
+                        </div>
+                        {item.name}
+                    </Link>
+                ))}
+            </div>     
         </section>
     );
 }
