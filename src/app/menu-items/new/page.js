@@ -6,6 +6,7 @@ import EditableImage from "@/components/layout/EditableImage";
 import UserTabs from "@/components/layout/UserTabs";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import Left from "@/components/icons/Left";
 import Right from "@/components/icons/Right";
 
 
@@ -52,8 +53,8 @@ export default function NewMenuItemPage(){
             <UserTabs isAdmin={true} />
             <div className="max-w-md mx-auto mt-8">
                 <Link href={'/menu-items'} className="button">
+                    <Left/>
                     <span>Show All Menu Items</span>
-                    <Right/>
                 </Link>
             </div>
             <form onSubmit={handleFormSubmit} className="mt-8 max-w-md mx-auto">
