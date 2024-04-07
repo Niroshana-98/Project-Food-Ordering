@@ -51,6 +51,6 @@ div.tabs > *.active{
 }
 
 .button1{
-    @apply flex w-full justify-center gap-2 text-black font-semibold;
+    @apply flex w-full justify-center gap-2 text-white font-semibold;
     @apply border border-gray-300 rounded-xl px-6 py-2;
 }
