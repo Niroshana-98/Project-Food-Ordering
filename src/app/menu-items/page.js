@@ -41,9 +41,12 @@ export default function MenuItemsPage(){
                 <h2 className="text-sm text-gray-100 mt-8">Edit Menu Item :</h2>
                 <div className="grid grid-cols-3 gap-2">
                     {menuItems?.length > 0 && menuItems.map((item, index) => (
-                        <Link href={'/menu-items/edit/'+item._id} key={index} className="button1 mb-1 text-white bg-secondary hover:bg-primary flex-col">
+                        <Link href={'/menu-items/edit/'+item._id} key={index} 
+                            className="text-white bg-secondary rounded-lg p-6 hover:bg-primary flex-col">
                             <div className="relative">
-                                <Image src={item.image} alt={''} width={100} height={100}/>
+                                <Image
+                                    className="rounded-lg" 
+                                    src={item.image} alt={''} width={200} height={200}/>
                             </div>
                             <div className="text-center">
                                 {item.name}
