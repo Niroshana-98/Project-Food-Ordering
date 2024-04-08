@@ -1,6 +1,7 @@
 import EditableImage from "@/components/layout/EditableImage";
 import {useEffect, useState} from "react";
 import Trash from "../icons/Trash";
+import Plus from "../icons/Plus";
 
 export default function MenuItemForm({onSubmit,menuItem}){
 
@@ -88,7 +89,10 @@ export default function MenuItemForm({onSubmit,menuItem}){
                     <button
                      type="button"
                      onClick={addSize}
-                     className="bg-secondary text-white">Add Item Size</button>
+                     className="bg-secondary text-white flex items-center justify-center">
+                        <Plus className="w-5 h-5"/>
+                        <span className="ml-2">Add Item Size</span>
+                    </button>
                 </div>
                 <button type="submit">Save</button>
             </div>
