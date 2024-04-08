@@ -34,10 +34,10 @@ export default function EditMenuItemPage(){
 
     async function handleFormSubmit(ev){
         ev.preventDefault();
-        const data ={image,name,description,basePrice,};
+        const data ={image,name,description,basePrice,_id:id};
         const savingPromise = new Promise(async(resolve, reject)=>{
             const response = await fetch('/api/menu-items',{
-                method: 'POST',
+                method: 'PUT',
                 body: JSON.stringify(data),
                 headers: {'Content-Type': 'application/json'},
             });
@@ -102,7 +102,7 @@ export default function EditMenuItemPage(){
                          value={basePrice}
                          onChange={ev => setBasePrice(ev.target.value)}
                         />
-                        <button type="submit">Save</button>
+                        <button type="submit">Update</button>
                     </div>
                 </div>
             </form>
