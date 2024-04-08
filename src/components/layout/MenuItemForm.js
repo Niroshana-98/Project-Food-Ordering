@@ -36,6 +36,10 @@ export default function MenuItemForm({onSubmit,menuItem}){
                  value={basePrice}
                  onChange={ev => setBasePrice(ev.target.value)}
                 />
+                <div className="bg-white p-2 rounded-md mb-2">
+                    <label>Sizes</label>
+                    <button className="bg-secondary">Add Item Size</button>
+                </div>
                 <button type="submit">Update</button>
             </div>
         </div>
