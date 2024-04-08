@@ -9,7 +9,7 @@ import Link from "next/link";
 import Left from "@/components/icons/Left";
 import Right from "@/components/icons/Right";
 import {redirect} from "next/navigation";
-import MenuItemForms from "../../../components/layout/MenuItemForms";
+import MenuItemForm from "../../../components/layout/MenuItemForm";
 
 
 export default function NewMenuItemPage(){
@@ -60,7 +60,7 @@ export default function NewMenuItemPage(){
                     <span>Show All Menu Items</span>
                 </Link>
             </div>
-            <MenuItemForms menuItem={null} onSubmit={handleFormSubmit} />
+            <MenuItemForm menuItem={null} onSubmit={handleFormSubmit} />
         </section>
     );
 }
