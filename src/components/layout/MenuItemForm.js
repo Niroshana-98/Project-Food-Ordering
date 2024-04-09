@@ -1,7 +1,5 @@
 import EditableImage from "@/components/layout/EditableImage";
 import {useEffect, useState} from "react";
-import Trash from "../icons/Trash";
-import Plus from "../icons/Plus";
 import MenuItemPriceProps from "./MenuItemPriceProps";
 
 export default function MenuItemForm({onSubmit,menuItem}){
@@ -10,7 +8,7 @@ export default function MenuItemForm({onSubmit,menuItem}){
     const [name,setName] = useState(menuItem?.name || '');
     const [description, setDescription] = useState(menuItem?.description || '');
     const [basePrice,setBasePrice] = useState(menuItem?.basePrice || '');
-    
+    const [sizes,setSizes] = useState([]);
 
     
     return(
@@ -42,7 +40,8 @@ export default function MenuItemForm({onSubmit,menuItem}){
                  value={basePrice}
                  onChange={ev => setBasePrice(ev.target.value)}
                 />
-                <MenuItemPriceProps/>
+                <MenuItemPriceProps name={'Sizes'} addLabel={'Add Item Size'} props={sizes} setProps={setSizes}/>
+                <MenuItemPriceProps name={'Extra Ingredients'}/>
                 <button type="submit">Save</button>
             </div>
         </div>
