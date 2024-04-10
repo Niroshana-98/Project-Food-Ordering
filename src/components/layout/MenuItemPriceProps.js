@@ -24,7 +24,9 @@ export default function MenuItemPriceProps({name,addLabel,props,setProps}){
 
     return(
         <div className="bg-white p-2 rounded-md mb-2">
-                    <label>{name}</label>
+                    <div>
+                        <h3>{name}</h3>
+                    </div>
                     {props?.length > 0 && props.map((size,index) => (
                         <div className="flex items-end gap-2" key={index}>
                             <div>

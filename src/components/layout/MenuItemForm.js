@@ -9,7 +9,10 @@ export default function MenuItemForm({onSubmit,menuItem}){
     const [description, setDescription] = useState(menuItem?.description || '');
     const [basePrice,setBasePrice] = useState(menuItem?.basePrice || '');
     const [sizes,setSizes] = useState(menuItem?.sizes || []);
-    const [extraIngredientPrices, setExtraIngredientPrices] = useState(menuItem?.extraIngredientPrices || []);
+    const [
+        extraIngredientPrices,
+        setExtraIngredientPrices
+    ] = useState(menuItem?.extraIngredientPrices || []);
 
     
     return(
