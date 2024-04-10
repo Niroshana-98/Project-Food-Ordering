@@ -9,11 +9,16 @@ export default function MenuItemForm({onSubmit,menuItem}){
     const [description, setDescription] = useState(menuItem?.description || '');
     const [basePrice,setBasePrice] = useState(menuItem?.basePrice || '');
     const [sizes,setSizes] = useState([]);
+    const [extraIngredientPrices, setExtraIngredientPrices] = useState([]);
 
     
     return(
         <form
-         onSubmit={ev => onSubmit(ev, {image,name,description,basePrice})}
+         onSubmit={ev => 
+            onSubmit(ev, {
+                image,name,description,basePrice,sizes,extraIngredientPrices
+            })
+        }
          className="mt-8 max-w-md mx-auto">
         <div
          className="grid items-start gap-4" 
@@ -40,8 +45,14 @@ export default function MenuItemForm({onSubmit,menuItem}){
                  value={basePrice}
                  onChange={ev => setBasePrice(ev.target.value)}
                 />
-                <MenuItemPriceProps name={'Sizes'} addLabel={'Add Item Size'} props={sizes} setProps={setSizes}/>
-                <MenuItemPriceProps name={'Extra Ingredients'}/>
+                <MenuItemPriceProps name={'Sizes'} 
+                                    addLabel={'Add Item Size'} 
+                                    props={sizes} 
+                                    setProps={setSizes}/>
+                <MenuItemPriceProps name={'Extra Ingredients'} 
+                                    addLabel={'Add Ingredients Prices'}
+                                    props={extraIngredientPrices}
+                                    setProps={setExtraIngredientPrices}/>
                 <button type="submit">Save</button>
             </div>
         </div>
