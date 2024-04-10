@@ -8,8 +8,8 @@ export default function MenuItemForm({onSubmit,menuItem}){
     const [name,setName] = useState(menuItem?.name || '');
     const [description, setDescription] = useState(menuItem?.description || '');
     const [basePrice,setBasePrice] = useState(menuItem?.basePrice || '');
-    const [sizes,setSizes] = useState([]);
-    const [extraIngredientPrices, setExtraIngredientPrices] = useState([]);
+    const [sizes,setSizes] = useState(menuItem?.sizes || []);
+    const [extraIngredientPrices, setExtraIngredientPrices] = useState(menuItem?.extraIngredientPrices || []);
 
     
     return(
