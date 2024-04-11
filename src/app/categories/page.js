@@ -118,13 +118,15 @@ export default function CategoriesPage(){
                 {categories?.length > 0 && categories.map( c => (
                     <div
                      key={c.id} 
-                     className="bg-gray-200 text-black font-semibold rounded-xl p-2 px-4 flex gap-1  mb-2 hover:bg-gray-500">
+                     className="bg-gray-200 text-black font-semibold rounded-xl p-2 px-4 flex gap-1  mb-2 hover:bg-gray-500 items-center">
                         <div
                          className="grow">
                             {c.name}
                         </div> 
                         <div className="flex gap-1">
-                            <button type="button"
+                            <button
+                             type="button"
+                             className="custom-bg-edit text-white border-none"
                                 onClick={() =>{
                                     setEditedCategory(c);
                                     setCategoryName(c.name);
@@ -133,6 +135,7 @@ export default function CategoriesPage(){
                                 Edit
                             </button> 
                             <button
+                             className="custom-bg-delete text-white border-none"
                              onClick={()=> handleDeleteClick(c._id)}
                              type="button">
                                 Delete
