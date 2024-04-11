@@ -62,8 +62,24 @@ export default function CategoriesPage(){
         });  
     }
 
-    function handleDeleteClick(_id){
-        console.log(_id);
+    async function handleDeleteClick(_id){
+        const promise = new Promise(async(resolve,reject)=>{
+            const response = await fetch('/api/categories?_id='+_id,{
+                method: 'DELETE',
+            });
+            if(response.ok){
+                resolve();
+            }else{
+                reject();
+            }
+        });
+        await toast.promise(promise,{
+            loading: 'Deleting...',
+            success: 'Category Deleted',
+            error: 'Action Unsuccessfully !',
+        });
+
+        fetchCategories();
     }
 
     if(profileLoading){
@@ -117,7 +133,7 @@ export default function CategoriesPage(){
                                 Edit
                             </button> 
                             <button
-                             onClick={()=> handleDeleteClick()}
+                             onClick={()=> handleDeleteClick(c._id)}
                              type="button">
                                 Delete
                             </button> 
