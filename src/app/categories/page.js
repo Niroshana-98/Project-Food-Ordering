@@ -3,6 +3,8 @@ import UserTabs from "@/components/layout/UserTabs";
 import { useEffect, useState } from "react";
 import {useProfile} from "@/components/UseProfile";
 import toast from "react-hot-toast";
+import Trash from "@/components/icons/Trash";
+import Edit from "@/components/icons/Edit";
 
 export default function CategoriesPage(){
 
@@ -106,9 +108,18 @@ export default function CategoriesPage(){
                                 onChange={ev => setCategoryName(ev.target.value)}
                         />
                     </div>
-                    <div className="pb-2">
+                    <div className="pb-2 flex gap-2">
                         <button className="border border-primary hover:text-secondary" type="submit">
                             {editedCategory ? 'Update': 'Create'}
+                        </button>
+                        <button
+                         onClick={()=> {
+                            setEditedCategory(null);
+                            setCategoryName('');
+                        }}
+                         type="button"
+                         className="bg-white text-secondary">
+                            Cancel
                         </button>
                     </div>
                 </div>    
@@ -132,13 +143,13 @@ export default function CategoriesPage(){
                                     setCategoryName(c.name);
                                 }}
                             >
-                                Edit
+                                <Edit/>
                             </button> 
                             <button
                              className="custom-bg-delete text-white border-none"
                              onClick={()=> handleDeleteClick(c._id)}
                              type="button">
-                                Delete
+                                <Trash/>
                             </button> 
                         </div> 
                     </div>
