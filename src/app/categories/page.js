@@ -59,8 +59,11 @@ export default function CategoriesPage(){
                         :'Creating New Category...',
             success: editedCategory?'Category Updated':'Category Created',
             error: 'Action Unsuccessfully !',
-        });
-        
+        });  
+    }
+
+    function handleDeleteClick(_id){
+        console.log(_id);
     }
 
     if(profileLoading){
@@ -95,17 +98,31 @@ export default function CategoriesPage(){
                 </div>    
             </form>
             <div>
-                <h2 className="mt-8 text-sm text-gray-100 mb-1">Edit Category:</h2>
+                <h2 className="mt-8 text-sm text-gray-100 mb-1">Existing Category:</h2>
                 {categories?.length > 0 && categories.map( c => (
-                    <button
-                     onClick={() => {
-                        setEditedCategory(c);
-                        setCategoryName(c.name);
-                    }}
+                    <div
                      key={c.id} 
-                     className="bg-gray-200 text-black rounded-xl p-2 px-4 flex gap-1 cursor-pointer mb-2 hover:bg-gray-500">
-                        <span>{c.name}</span>    
-                    </button>
+                     className="bg-gray-200 text-black font-semibold rounded-xl p-2 px-4 flex gap-1  mb-2 hover:bg-gray-500">
+                        <div
+                         className="grow">
+                            {c.name}
+                        </div> 
+                        <div className="flex gap-1">
+                            <button type="button"
+                                onClick={() =>{
+                                    setEditedCategory(c);
+                                    setCategoryName(c.name);
+                                }}
+                            >
+                                Edit
+                            </button> 
+                            <button
+                             onClick={()=> handleDeleteClick()}
+                             type="button">
+                                Delete
+                            </button> 
+                        </div> 
+                    </div>
                 ))}
             </div>
         </section>

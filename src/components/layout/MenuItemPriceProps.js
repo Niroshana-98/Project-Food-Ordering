@@ -40,6 +40,7 @@ export default function MenuItemPriceProps({name,addLabel,props,setProps}){
                         <ChevronDown/>
                     )}
                     <span>{name}</span>
+                    <span className="ml-1">({props?.length})</span>
             </button>
             <div className={isOpen ? 'block' :'hidden'}>
                 {props?.length > 0 && props.map((size,index) => (
