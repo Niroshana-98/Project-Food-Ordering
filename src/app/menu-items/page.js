@@ -27,7 +27,7 @@ export default function MenuItemsPage(){
         return <p className="text-white">Not an Admin</p>;
     }
     return(
-        <section className="mt-8 max-w-md mx-auto">
+        <section className="mt-8 max-w-2xl mx-auto">
             <UserTabs isAdmin={true}/>
             <div className="mt-8 mb-2">
                 <Link
