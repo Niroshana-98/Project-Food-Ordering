@@ -58,6 +58,6 @@ div.tabs > *.active{
 .custom-bg-edit {
     background-color: #0a0a23;
 }
-.custom-bg-delete {
+.custom-bg-delete, button.primary {
     background-color: #f44336;
 }

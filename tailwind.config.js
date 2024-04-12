@@ -11,6 +11,7 @@ module.exports = {
         primary:'#ff8500',//f13a01
         secondary:'#1c1c1c',
         log:'#ff0000',
+        redB:'#f44336',
       },
     },
   },

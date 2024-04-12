@@ -145,12 +145,7 @@ export default function CategoriesPage(){
                             >
                                 <Edit/>
                             </button> 
-                            <button
-                             className="custom-bg-delete text-white border-none"
-                             onClick={()=> handleDeleteClick(c._id)}
-                             type="button">
-                                <Trash/>
-                            </button> 
+                            <DeleteButton
                         </div> 
                     </div>
                 ))}
