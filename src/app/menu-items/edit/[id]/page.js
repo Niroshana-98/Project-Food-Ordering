@@ -8,6 +8,7 @@ import {redirect, useParams} from "next/navigation";
 import {useEffect, useState} from "react";
 import toast from "react-hot-toast";
 import MenuItemForm from "../../../../components/layout/MenuItemForm";
+import DeleteButton from "@/components/DeleteButton";
 
 
 
@@ -91,9 +92,10 @@ export default function EditMenuItemPage(){
            <MenuItemForm menuItem={menuItem} onSubmit={handleFormSubmit}/>
            <div className="max-w-md mx-auto mt-4">
             <div className="max-w-xs ml-auto pl-4">
-                <button
-                 className="bg-white"
-                 onClick={handleDeleteClick}>Delete this Menu Item</button>
+                <DeleteButton
+                 label="Delete this Menu Item"
+                 onDelete={handleDeleteClick}
+                />
             </div>
            </div>
         </section>
