@@ -1,5 +1,5 @@
 import EditableImage from "@/components/layout/EditableImage";
-import {useEffect, useState} from "react";
+import {use, useEffect, useState} from "react";
 import MenuItemPriceProps from "./MenuItemPriceProps";
 
 export default function MenuItemForm({onSubmit,menuItem}){
@@ -9,17 +9,26 @@ export default function MenuItemForm({onSubmit,menuItem}){
     const [description, setDescription] = useState(menuItem?.description || '');
     const [basePrice,setBasePrice] = useState(menuItem?.basePrice || '');
     const [sizes,setSizes] = useState(menuItem?.sizes || []);
+    const [categories, setCategories] = useState([]);
+    const [category, setCategory] = useState(menuItem?.category || '');
     const [
         extraIngredientPrices,
         setExtraIngredientPrices
     ] = useState(menuItem?.extraIngredientPrices || []);
 
-    
+    useEffect(() => {
+        fetch('/api/categories').then(res => {
+            res.json().then(categories => {
+                setCategories(categories);
+            });
+        });
+    }, []);
+
     return(
         <form
          onSubmit={ev => 
             onSubmit(ev, {
-                image,name,description,basePrice,sizes,extraIngredientPrices
+                image,name,description,basePrice,sizes,extraIngredientPrices,category,
             })
         }
          className="mt-8 max-w-md mx-auto">
@@ -42,6 +51,14 @@ export default function MenuItemForm({onSubmit,menuItem}){
                  value={description}
                  onChange={ev => setDescription(ev.target.value)}
                 />
+                <label  className="text-white">Category</label>
+                <select className="font-semibold text-gray-700" value={category} onChange={ev => setCategory(ev.target.value)}>
+                    {categories?.length > 0 && categories.map(c =>(
+                        <option key={c._id} value={c._id}>
+                            {c.name}
+                        </option>
+                    ))}
+                </select>
                 <label className="text-white">Price</label>
                 <input
                  type="text"

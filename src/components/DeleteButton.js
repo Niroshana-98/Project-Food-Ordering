@@ -19,7 +19,10 @@ export default function DeleteButton({label, onDelete}){
                         </button>
                         <button
                          type="button"
-                         onClick={onDelete} 
+                         onClick={() => {
+                            onDelete();
+                            setShowConfirm(false);
+                         }} 
                          className="primary border-redB hover:text-white">
                             Yes, Delete!
                         </button>
