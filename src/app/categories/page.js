@@ -5,6 +5,7 @@ import {useProfile} from "@/components/UseProfile";
 import toast from "react-hot-toast";
 import Trash from "@/components/icons/Trash";
 import Edit from "@/components/icons/Edit";
+import DeleteButton from "@/components/DeleteButton";
 
 export default function CategoriesPage(){
 
@@ -146,6 +147,9 @@ export default function CategoriesPage(){
                                 <Edit/>
                             </button> 
                             <DeleteButton
+                             label={<Trash/>}
+                             onDelete={() => handleDeleteClick(c._id)}
+                             style={{ backgroundColor: 'red' }}/>
                         </div> 
                     </div>
                 ))}
