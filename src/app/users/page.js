@@ -1,6 +1,8 @@
 'use client';
+import Edit from "@/components/icons/Edit";
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function UsersPage(){
@@ -30,12 +32,15 @@ if(!data.admin){
             <div className="mt-8">
                 {users.length > 0 && users.map((user, index) => (
                     <div key={index} className="bg-white rounded-lg mb-2 p-1 px-4 flex items-center gap-4">
-                        <div>
-                            <span>{user.name}</span>
-                            <span>{user.email}</span>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 grow">
+                            <div className="text-secondary font-semibold">
+                                {!!user.name && (<span>{user.name}</span>)}
+                                {!user.name && (<span className="italic">No Name</span>)}
+                            </div>
+                            <span className="text-gray-500 font-semibold">{user.email}</span>
                         </div>
                         <div>
-                            <button>Edit</button>
+                            <Link className=" button text-secondary" href={'/users/'+ user._id}>Edit</Link>
                         </div>
                     </div>
                 ))}
