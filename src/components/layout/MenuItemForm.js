@@ -31,7 +31,7 @@ export default function MenuItemForm({onSubmit,menuItem}){
                 image,name,description,basePrice,sizes,extraIngredientPrices,category,
             })
         }
-         className="mt-8 max-w-md mx-auto">
+         className="mt-8 max-w-2xl mx-auto">
         <div
          className="grid items-start gap-4" 
          style={{gridTemplateColumns:'.3fr .7fr'}}>
