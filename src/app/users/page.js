@@ -1,5 +1,4 @@
 'use client';
-import Edit from "@/components/icons/Edit";
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
 import Link from "next/link";
@@ -40,7 +39,7 @@ if(!data.admin){
                             <span className="text-gray-500 font-semibold">{user.email}</span>
                         </div>
                         <div>
-                            <Link className=" button text-secondary" href={'/users/'+ user._id}>Edit</Link>
+                            <Link className="font-semibold text-secondary" href={'/users/'+ user._id}>Edit</Link>
                         </div>
                     </div>
                 ))}
