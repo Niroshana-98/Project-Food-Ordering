@@ -1,14 +1,16 @@
+'use client';
 import EditableImage from "@/components/layout/EditableImage";
+import { useEffect, useState } from "react";
 
-export default function UserForm(){
+export default function UserForm({user,onSave}){
 
-    const [userName, setUserName] = useState('');
-    const [image,setImage]=useState('');
-    const[phone,setPhone]=useState('');
-    const[streetAddress,setStreetAddress]=useState('');
-    const[postalCode,setPostalCode]=useState('');
-    const[city,setCity]=useState('');
-    const[country,setCountry]=useState('');
+    const [userName, setUserName] = useState(user?.name ||'');
+    const [image,setImage]=useState(user?.image ||'');
+    const [phone,setPhone]=useState(user?.phone ||'');
+    const [streetAddress,setStreetAddress]=useState(user?.streetAddress ||'');
+    const [postalCode,setPostalCode]=useState(user?.postalCode ||'');
+    const [city,setCity]=useState(user?.city ||'');
+    const [country,setCountry]=useState(user?.country ||'');
     return(
         <div className="flex gap-4">
             <div>
@@ -16,7 +18,13 @@ export default function UserForm(){
                     <EditableImage link={image} setLink={setImage}/>
                 </div>
             </div>
-            <form className="grow" onSubmit={handleProfileInfoUpdate}>
+            <form
+             className="grow" 
+             onSubmit={ev =>
+                onSave(ev,{
+                    name:userName,image,phone,streetAddress,postalCode,city,country,
+                })
+             }>
                 <label className="text-white">
                     Full Name
                 </label>
@@ -34,7 +42,7 @@ export default function UserForm(){
                 <input
                     type="email" 
                     disabled={true} 
-                    value={session.data.user.email}
+                    value={user.email}
                     placeholder={'email'}
                     className="hover:bg-gray-300"
                 />
