@@ -1,15 +1,15 @@
 'use client';
 import {useProfile} from "@/components/UseProfile";
-import { data } from "autoprefixer";
 import { useState } from "react";
-import EditableImage from "@/components/layout/EditableImage";
 import UserTabs from "@/components/layout/UserTabs";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import Left from "@/components/icons/Left";
-import Right from "@/components/icons/Right";
 import {redirect} from "next/navigation";
-import MenuItemForm from "../../../components/layout/MenuItemForm";
+import MenuItemForm from "@/components/layout/MenuItemForm";
+import Right from "@/components/icons/Right";
+import EditableImage from "@/components/layout/EditableImage";
+import { data } from "autoprefixer";
 
 
 export default function NewMenuItemPage(){

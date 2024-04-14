@@ -1,6 +1,7 @@
 'use client';
 import EditableImage from "@/components/layout/EditableImage";
 import { useEffect, useState } from "react";
+import { useProfile } from "../UseProfile";
 
 export default function UserForm({user,onSave}){
 
@@ -11,6 +12,8 @@ export default function UserForm({user,onSave}){
     const [postalCode,setPostalCode]=useState(user?.postalCode ||'');
     const [city,setCity]=useState(user?.city ||'');
     const [country,setCountry]=useState(user?.country ||'');
+    const [admin, setAdmin] = useState(user?.admin || false);
+    const {data:loggedInUserData} =useProfile();
     return(
         <div className="flex gap-4">
             <div>
@@ -22,7 +25,7 @@ export default function UserForm({user,onSave}){
              className="grow" 
              onSubmit={ev =>
                 onSave(ev,{
-                    name:userName,image,phone,streetAddress,postalCode,city,country,
+                    name:userName,image,phone,admin,streetAddress,postalCode,city,country,
                 })
              }>
                 <label className="text-white">
@@ -68,7 +71,7 @@ export default function UserForm({user,onSave}){
                     className="hover:bg-gray-300"
                 />
 
-                <div className="flex gap-2 mb-2">
+                <div className="grid grid-cols-2 gap-2 mb-2">
                     <div>
                         <label className="text-white">
                             Zip Code
@@ -104,6 +107,18 @@ export default function UserForm({user,onSave}){
                     onChange={ev => setCountry(ev.target.value)}
                     className="hover:bg-gray-300"
                 />
+                {loggedInUserData.admin &&(
+                    <div>
+                        <label className="text-white p-2 inline-flex items-center gap-2 mb-2"
+                        htmlFor="adminCb">
+                            <input
+                            id="adminCb" type="checkbox" className="" value={'1'}
+                            checked={admin}
+                            onClick={ev => setAdmin(ev.target.checked)}/>
+                            <span>Admin</span>
+                        </label>
+                    </div>
+                )}                
                 <button type="submit" className="mt-4">Save</button>
             </form>                   
          </div>
