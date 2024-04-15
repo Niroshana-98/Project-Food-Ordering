@@ -25,7 +25,7 @@ export default function UserForm({user,onSave}){
              className="grow" 
              onSubmit={ev =>
                 onSave(ev,{
-                    name:userName,image,phone,admin,streetAddress,postalCode,city,country,
+                    name:userName,image,phone,streetAddress,postalCode,city,country,admin,
                 })
              }>
                 <label className="text-white">
