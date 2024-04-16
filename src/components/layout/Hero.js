@@ -21,9 +21,9 @@ export default function hero(){
         <section className="hero mt-4 mb-48">
             <div className="py-12">
                 <h1 className="text-4xl font-semibold text-white">
-                    Everything<br/>
-                    is better<br/>
-                    with a&nbsp; 
+                    Life is<br/> 
+                    Tastier with a<br/>
+                    Side of&nbsp; 
                     <span className="text-primary">
                         FOOD
                     </span>
