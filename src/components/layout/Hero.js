@@ -3,6 +3,7 @@ import Image from "next/image";
 import Right from "../icons/Right";
 import React from "react";
 import Slideshow from "../Slideshow";
+import { motion } from 'framer-motion';
 
 const images = [
     {
@@ -20,14 +21,17 @@ export default function hero(){
     return(
         <section className="hero mt-4 mb-48">
             <div className="py-12">
-                <h1 className="text-4xl font-semibold text-white">
+                <motion.h1 className="text-4xl font-semibold text-white"
+                initial={{ x: -300 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 1 }}>
                     Life is<br/> 
                     Tastier with a<br/>
                     Side of&nbsp; 
                     <span className="text-primary">
                         FOOD
                     </span>
-                </h1>
+                </motion.h1>
                 <p className="my-6 text-white text-sm">
                     Pizza is the missing piece that makes every day complete, a simple yet delicious joy in life
                 </p>
