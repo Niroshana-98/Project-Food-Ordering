@@ -1,10 +1,38 @@
+'use client';
 import Header from "../components/layout/Header";
 import Hero from "../components/layout/Hero";
 import HomeMenu from "../components/layout/HomeMenu";
 import SectionHeaders from "../components/layout/SectionHeaders";
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { Element, scroller } from 'react-scroll';
 
 
 export default function Home() {
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) { // Adjust the scroll threshold as needed
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (isVisible) {
+      scroller.scrollTo('scroll-target', {
+        duration: 1000,
+        delay: 0,
+        smooth: 'easeInOutQuart',
+      });
+    }
+  }, [isVisible]);
+
   return (
     <>
       <Hero />
@@ -14,7 +42,12 @@ export default function Home() {
           subHeader={'Our Story'}
           mainHeader={'About us'}
       />
-      <div className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
+      <Element name="scroll-target">
+      <motion.div
+       initial={{ x: -1000 }}
+       animate={{ x: 0 }}
+       transition={{ duration: 1, type: 'spring', stiffness: 120 }}
+       className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
         <p>
         Welcome to Bacement Cafe. At Bacement Cafe, we believe that dining is not just about food; it’s an experience. Nestled in the heart of Galle, our restaurant combines flavors with warm hospitality. Whether you’re celebrating a special occasion or simply enjoying a meal with loved ones, we invite you to savor every moment with us.
         </p>
@@ -24,7 +57,8 @@ export default function Home() {
         <p>
         Our mission is simple - to create memorable dining experiences. From our carefully curated menu to our thoughtfully designed space, every detail reflects our dedication to excellence. We strive to be more than just a restaurant; we want to be a part of your cherished memories.
         </p>
-      </div>
+      </motion.div>
+      </Element>
       </section>
       <section className="text-center my-8">
         <SectionHeaders 
