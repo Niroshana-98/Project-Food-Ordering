@@ -18,9 +18,9 @@ export default function Header(){
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BACEMENT CAFE
             </Link>
             <Link className="hover:text-white"href={'/'}>Home</Link>
-            <Link className="hover:text-white"href={''}>Menu</Link>
-            <Link className="hover:text-white"href={''}>About</Link>
-            <Link className="hover:text-white"href={''}>Contact</Link>
+            <Link className="hover:text-white"href={'/menu'}>Menu</Link>
+            <Link className="hover:text-white"href={'/#about'}>About</Link>
+            <Link className="hover:text-white"href={'/#contact'}>Contact</Link>
         </nav>
         <nav className="flex items-center gap-4 text-gray-100 font-semibold">
           {status == 'authenticated' && (
