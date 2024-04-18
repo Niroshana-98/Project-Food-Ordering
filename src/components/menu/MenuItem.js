@@ -1,29 +1,53 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContex } from "../AppContext";
+import toast from "react-hot-toast";
+import MenuItemTile from "@/components/menu/MenuItemTile";
+import Image from "next/image";
 
 export default function MenuItem(menuItem){
 
     const{image,name,description,basePrice,sizes,extraIngredientPrices} = menuItem;
+    const [showPopup, setShowPopup] =useState(false);
 
     const {addToCart} = useContext(CartContex);
+    function handleAddToCartButtonClick(){
+        if(sizes.length === 0 && extraIngredientPrices.length === 0){
+            addToCart(menuItem);
+            toast.success('Added to Cart !');
+        }else{
+            setShowPopup(true);
+        }
+    }
 
     return(
-        <div className="bg-secondary p-4 rounded-lg text-center text-gray-200 group
-         hover:bg-primary hover:shadow-md hover-shadow-black/25 transition-all hover:text-black
-         flex flex-col justify-between">
-            <div className="text-center">
-            <img src={image} className="max-h-auto max-h-24 block mx-auto transition-transform duration-300 ease-in-out transform group-hover:scale-125" alt="pizza"/>
-            </div>    
-            <h4 className="font-semibold text-xl my-3">{name}</h4>
-            <p className="text-white text-sm hover:font-bold line-clamp-3">
-                {description}
-            </p>
-            <button
-             onClick={() => addToCart(menuItem)}
-             className="text-white mt-auto bg-primary  rounded-full px-8 py-2
-           border-primary group-hover:bg-secondary group-hover:text-primary">
-                Add to Cart LKR {basePrice}
-            </button>
-        </div>
+        <>
+            {showPopup && (
+                <div className="fixed inset-0 flex items-center justify-center z-50">
+                    <div className="absolute inset-0 bg-black opacity-80" />
+                    <div className="relative bg-secondary p-4 rounded-lg z-50 max-w-md">
+                        <Image
+                         src={image} 
+                         alt={name} 
+                         width={300} height={300}
+                         className="mx-auto" />
+                        <h2 className="text-lg font-bold text-center">{name}</h2>
+                        <p className="text-sm text-center mb-2">{description}</p>
+                        {sizes?.length >0 && (
+                            <div className="p-2">
+                                <h3>Pick Your Size</h3>
+                                {sizes.map(size => (
+                                    <label key={size._id} className="block py-1 border">
+                                        <input type="radio"/>{size.name} LKR {basePrice + size.price}
+                                    </label>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+              </div>
+            )}
+            <MenuItemTile 
+                onAddToCart={handleAddToCartButtonClick} 
+                {...menuItem}/>
+        </>
     );
 }
