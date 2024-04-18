@@ -1,4 +1,12 @@
-export default function MenuItem({image,name,description,basePrice,sizes,extraIngredientPrices}){
+import { useContext } from "react";
+import { CartContex } from "../AppContext";
+
+export default function MenuItem(menuItem){
+
+    const{image,name,description,basePrice,sizes,extraIngredientPrices} = menuItem;
+
+    const {addToCart} = useContext(CartContex);
+
     return(
         <div className="bg-secondary p-4 rounded-lg text-center text-gray-200 group
          hover:bg-primary hover:shadow-md hover-shadow-black/25 transition-all hover:text-black
@@ -11,7 +19,7 @@ export default function MenuItem({image,name,description,basePrice,sizes,extraIn
                 {description}
             </p>
             <button
-             onClick={() => {}}
+             onClick={() => addToCart(menuItem)}
              className="text-white mt-auto bg-primary  rounded-full px-8 py-2
            border-primary group-hover:bg-secondary group-hover:text-primary">
                 Add to Cart LKR {basePrice}
