@@ -7,7 +7,9 @@ export default function MenuItemTile({onAddToCart, ...item}){
             <div className="text-center">
                 <img src={image} className="max-h-auto max-h-24 block mx-auto transition-transform duration-300 ease-in-out transform group-hover:scale-125" alt="pizza"/>
             </div>    
-            <h4 className="font-semibold text-xl my-3">{name}</h4>
+            <h4 className="font-semibold text-xl my-3 group-hover:font-bold">
+                {name}
+            </h4>
             <p className="text-white text-sm line-clamp-3 group-hover:text-secondary group-hover:font-semibold">
                 {description}
             </p>
