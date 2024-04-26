@@ -11,13 +11,16 @@ export default function MenuItem(menuItem){
     const [selectedSize, setSelectedSize] =useState(sizes?.[0] || null);
     const [selectedExtras, setSelectedExtras] = useState([]);
     const {addToCart} = useContext(CartContex);
+
     function handleAddToCartButtonClick(){
-        if(sizes.length === 0 && extraIngredientPrices.length === 0){
-            addToCart(menuItem);
-            toast.success('Added to Cart !');
-        }else{
+        const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
+        if(hasOptions && !showPopup){
             setShowPopup(true);
+            return;
         }
+        addToCart(menuItem, selectedSize, selectedExtras);
+        setShowPopup(false);
+        toast.success('Added to Cart !');          
     }
 
     function handleExtraThingClick(ev, extraThing){
@@ -98,8 +101,16 @@ export default function MenuItem(menuItem){
                                 ))}
                             </div>
                         )}
-                        <button className="primary border-primary text-white sticky bottom-2" type="button">
+                        <button
+                         className="primary border-primary text-white sticky bottom-2"
+                         onClick={handleAddToCartButtonClick} 
+                         type="button">
                             Add to Cart LKR {selectedPrice}
+                        </button>
+                        <button
+                         className="mt-2 bg-gray-200" 
+                         onClick={() =>setShowPopup(false)}>
+                            Cancel
                         </button>
                     </div>
               </div>
