@@ -2,6 +2,7 @@
 import EditableImage from "@/components/layout/EditableImage";
 import { useEffect, useState } from "react";
 import { useProfile } from "../UseProfile";
+import AddressInputs from "./AddressInputs";
 
 export default function UserForm({user,onSave}){
 
@@ -14,6 +15,14 @@ export default function UserForm({user,onSave}){
     const [country,setCountry]=useState(user?.country ||'');
     const [admin, setAdmin] = useState(user?.admin || false);
     const {data:loggedInUserData} =useProfile();
+
+    function handleAddressChange(propName,value){
+        if(propName === 'phone') setPhone(value);
+        if(propName === 'streetAddress') setStreetAddress(value);
+        if(propName === 'postalCode') setPostalCode(value);
+        if(propName === 'city') setCity(value);
+        if(propName === 'country') setCountry(value);
+    }
     return(
         <div className="flex gap-4">
             <div>
@@ -49,64 +58,15 @@ export default function UserForm({user,onSave}){
                     placeholder={'email'}
                     className="hover:bg-gray-300"
                 />
-
-                <label className="text-white">
-                    Phone Number
-                </label>
-                <input 
-                    type="tel"
-                    placeholder="Phone Number"
-                    value={phone} onChange={ev => setPhone(ev.target.value)}
-                    className="hover:bg-gray-300"
-                />
-
-                <label className="text-white">
-                    Street Address
-                </label>
-                <input
-                    type="text" 
-                    placeholder="Street Address"
-                    value={streetAddress} 
-                    onChange={ev => setStreetAddress(ev.target.value)}
-                    className="hover:bg-gray-300"
-                />
-
-                <div className="grid grid-cols-2 gap-2 mb-2">
-                    <div>
-                        <label className="text-white">
-                            Zip Code
-                        </label>
-                        <input
-                            type="text" 
-                            placeholder="Postal Code"
-                            value={postalCode} 
-                            onChange={ev => setPostalCode(ev.target.value)}
-                            className="hover:bg-gray-300"
-                        />
-                    </div>
-                    <div>
-                        <label className="text-white">
-                            City
-                        </label>
-                        <input
-                            type="text" 
-                            placeholder="City"
-                            value={city} 
-                            onChange={ev => setCity(ev.target.value)}
-                            className="hover:bg-gray-300"
-                        />
-                    </div>    
-                </div> 
-                <label className="text-white">
-                    District
-                </label>
-                <input
-                    type="text" 
-                    placeholder="District"
-                    value={country} 
-                    onChange={ev => setCountry(ev.target.value)}
-                    className="hover:bg-gray-300"
-                />
+                <AddressInputs
+                    addressProps={{
+                        phone,
+                        streetAddress,
+                        postalCode,
+                        city,
+                        country
+                    }}
+                    setAddressProp={handleAddressChange}/>
                 {loggedInUserData.admin &&(
                     <div>
                         <label className="text-white p-2 inline-flex items-center gap-2 mb-2"
