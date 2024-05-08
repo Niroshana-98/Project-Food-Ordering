@@ -1,4 +1,4 @@
-export default function AddressInputs({addressProps, setAddressProp}){
+export default function AddressInputs({addressProps, setAddressProp,disabled=false}){
     const {phone, streetAddress, postalCode, city, country}=addressProps;
     return(
         <>
@@ -6,9 +6,10 @@ export default function AddressInputs({addressProps, setAddressProp}){
                 Phone Number
             </label>
             <input 
+                disabled={disabled}
                 type="tel"
                 placeholder="Phone Number"
-                value={phone} onChange={ev => setAddressProp('phone',ev.target.value)}
+                value={phone || ''} onChange={ev => setAddressProp('phone',ev.target.value)}
                 className="hover:bg-gray-300"
             />
 
@@ -16,9 +17,10 @@ export default function AddressInputs({addressProps, setAddressProp}){
                 Street Address
             </label>
             <input
+                disabled={disabled}
                 type="text" 
                 placeholder="Street Address"
-                value={streetAddress} 
+                value={streetAddress || ''} 
                 onChange={ev => setAddressProp('streetAddress',ev.target.value)}
                 className="hover:bg-gray-300"
             />
@@ -29,9 +31,10 @@ export default function AddressInputs({addressProps, setAddressProp}){
                         Zip Code
                     </label>
                     <input
+                        disabled={disabled}
                         type="text" 
                         placeholder="Postal Code"
-                        value={postalCode} 
+                        value={postalCode || ''} 
                         onChange={ev => setAddressProp('postalCode',ev.target.value)}
                         className="hover:bg-gray-300"
                     />
@@ -41,9 +44,10 @@ export default function AddressInputs({addressProps, setAddressProp}){
                         City
                     </label>
                     <input
+                        disabled={disabled}
                         type="text" 
                         placeholder="City"
-                        value={city} 
+                        value={city || ''} 
                         onChange={ev => setAddressProp('city',ev.target.value)}
                         className="hover:bg-gray-300"
                     />
@@ -53,9 +57,10 @@ export default function AddressInputs({addressProps, setAddressProp}){
                 District
             </label>
             <input
+                disabled={disabled}
                 type="text" 
                 placeholder="District"
-                value={country} 
+                value={country || ''} 
                 onChange={ev => setAddressProp('country',ev.target.value)}
                 className="hover:bg-gray-300"
             />

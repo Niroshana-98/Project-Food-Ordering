@@ -12,7 +12,7 @@ export function cartProductPrice(cartProduct){
     }
     if(cartProduct.extras?.length > 0){
         for(const extra of cartProduct.extras){
-            price + extra.price;
+            price += extra.price;
         }
     }
     return price;
@@ -36,7 +36,8 @@ export function AppProvider({children}){
 
       function removeCartProduct(indexToRemove){
         setCartProducts(prevCartProducts => {
-            const newCartProducts = prevCartProducts.filter((v,index) => index !== indexToRemove);
+            const newCartProducts = prevCartProducts
+                .filter((v,index) => index !== indexToRemove);
             saveCartProductsToLocalStorage(newCartProducts);
             return newCartProducts;
         });
