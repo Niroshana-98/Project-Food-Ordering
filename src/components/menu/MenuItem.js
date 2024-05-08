@@ -3,6 +3,7 @@ import { CartContex } from "../AppContext";
 import toast from "react-hot-toast";
 import MenuItemTile from "@/components/menu/MenuItemTile";
 import Image from "next/image";
+import FlyingButton from "react-flying-item";
 
 export default function MenuItem(menuItem){
 
@@ -12,13 +13,15 @@ export default function MenuItem(menuItem){
     const [selectedExtras, setSelectedExtras] = useState([]);
     const {addToCart} = useContext(CartContex);
 
-    function handleAddToCartButtonClick(){
+    async function handleAddToCartButtonClick(){
         const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
         if(hasOptions && !showPopup){
             setShowPopup(true);
             return;
         }
         addToCart(menuItem, selectedSize, selectedExtras);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log('hiding popup');
         setShowPopup(false);
         toast.success('Added to Cart !');          
     }
@@ -86,7 +89,7 @@ export default function MenuItem(menuItem){
                             </div>
                         )}
                         {extraIngredientPrices?.length > 0 &&(
-                            <div className="py-2">
+                            <div className="py-2 ">
                                 <h3 className="text-center">Any Extra Ingredient ?</h3>
                                 {extraIngredientPrices.map(extraThing => (
                                     <label key={extraThing._id} className="flex items-center gap-2 p-4 border rounded-md mb-1">
@@ -101,12 +104,20 @@ export default function MenuItem(menuItem){
                                 ))}
                             </div>
                         )}
-                        <button
-                         className="primary border-primary text-white sticky bottom-2"
-                         onClick={handleAddToCartButtonClick} 
-                         type="button">
-                            Add to Cart LKR {selectedPrice}
-                        </button>
+                        <FlyingButton
+                            className="text-green-400"
+                            targetTop={'5%'}
+                            targetLeft={'95%'}
+                            src={image}
+                            >
+                                <div
+                                    className="border-primary text-white sticky bottom-2"
+                                    onClick={handleAddToCartButtonClick} 
+                                    >
+                                        Add to Cart LKR {selectedPrice}
+                                </div>
+                        </FlyingButton>
+                        
                         <button
                          className="mt-2 bg-gray-200" 
                          onClick={() =>setShowPopup(false)}>

@@ -99,15 +99,15 @@ export default function CartPage() {
             />
           ))}
           <div className="py-2 pr-16 flex justify-end items-center">
-            <div className="text-gray-500">
+            <div className="text-gray-200 text-left">
               Subtotal:<br />
               Delivery:<br />
               Total:
             </div>
             <div className="font-semibold pl-2 text-right">
-              LKR {subtotal}<br />
-              LKR 200<br />
-              LKR {subtotal + 200}
+              LKR {subtotal}.00<br />
+              LKR &nbsp;200.00<br />
+              LKR {subtotal + 200}.00
             </div>
           </div>
         </div>

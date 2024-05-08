@@ -62,3 +62,6 @@ div.tabs > *.active{
 .custom-bg-delete, button.primary {
     background-color: #f44336;
 }
+.flying-button-parent button{
+    @apply border-primary bg-primary text-white;
+}
