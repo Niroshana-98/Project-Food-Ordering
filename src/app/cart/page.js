@@ -66,9 +66,9 @@ export default function CartPage() {
     });
 
     await toast.promise(promise, {
-      loading: 'Preparing your order...',
-      success: 'Redirecting to payment...',
-      error: 'Something went wrong... Please try again later',
+      loading: 'Preparing Your Order...',
+      success: 'Redirecting To Payment...',
+      error: 'Something Went Wrong... Please Try Again Later',
     })
   }
 
