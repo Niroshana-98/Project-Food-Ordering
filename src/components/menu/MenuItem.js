@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { CartContex } from "../AppContext";
+import { CartContext } from "../AppContext";
 import toast from "react-hot-toast";
 import MenuItemTile from "@/components/menu/MenuItemTile";
 import Image from "next/image";
@@ -11,7 +11,7 @@ export default function MenuItem(menuItem){
     const [showPopup, setShowPopup] =useState(false);
     const [selectedSize, setSelectedSize] =useState(sizes?.[0] || null);
     const [selectedExtras, setSelectedExtras] = useState([]);
-    const {addToCart} = useContext(CartContex);
+    const {addToCart} = useContext(CartContext);
 
     async function handleAddToCartButtonClick(){
         const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;

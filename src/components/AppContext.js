@@ -3,7 +3,7 @@ import {SessionProvider} from "next-auth/react";
 import { createContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-export const CartContex = createContext({});
+export const CartContext = createContext({});
 
 export function cartProductPrice(cartProduct){
     let price = cartProduct.basePrice;
@@ -60,11 +60,11 @@ export function AppProvider({children}){
     }
     return(
         <SessionProvider>
-            <CartContex.Provider value={{
+            <CartContext.Provider value={{
                 cartProducts,setCartProducts,addToCart,removeCartProduct,clearCart,
             }}>
                 {children}
-            </CartContex.Provider>
+            </CartContext.Provider>
         </SessionProvider>
     );
 }

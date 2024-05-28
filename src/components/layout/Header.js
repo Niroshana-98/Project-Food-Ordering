@@ -2,7 +2,7 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useContext } from "react";
-import { CartContex } from "../AppContext";
+import { CartContext } from "../AppContext";
 import ShoppingCart from "@/components/icons/ShoppingCart";
 
 export default function Header(){
@@ -10,7 +10,7 @@ export default function Header(){
     const status = session.status;
     const userData = session.data?.user;
     let userName= userData?.name || userData?.email;
-    const {cartProducts} = useContext(CartContex);
+    const {cartProducts} = useContext(CartContext);
     if(userName && userName.includes(' ')){
       userName =userName.split(' ')[0];
     }

@@ -1,5 +1,5 @@
 'use client';
-import {CartContex, cartProductPrice} from "@/components/AppContext";
+import {CartContext, cartProductPrice} from "@/components/AppContext";
 import Trash from "@/components/icons/Trash";
 import AddressInputs from "@/components/layout/AddressInputs";
 import SectionHeaders from "@/components/layout/SectionHeaders";
@@ -10,7 +10,7 @@ import {useContext, useEffect, useState} from "react";
 import toast from "react-hot-toast";
 
 export default function CartPage() {
-  const {cartProducts,removeCartProduct} = useContext(CartContex);
+  const {cartProducts,removeCartProduct} = useContext(CartContext);
   const [address, setAddress] = useState({});
   const {data:profileData} = useProfile();
 
@@ -95,7 +95,7 @@ export default function CartPage() {
             <CartProduct
               key={index}
               product={product}
-              index={index}
+              //index={index}
               onRemove={removeCartProduct}
             />
           ))}
