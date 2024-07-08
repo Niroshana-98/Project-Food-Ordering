@@ -68,7 +68,7 @@ export async function POST(req){
                 shipping_rate_data:{
                     display_name:'Delivery Fee',
                     type: 'fixed_amount',
-                    fixed_amount:{amount: 500, currency:'LKR'},
+                    fixed_amount:{amount: 20000, currency:'LKR'},
                 },
             }
         ],

@@ -45,29 +45,29 @@ export default function OrderPage() {
         </div>
       </div>
       {loadingOrder && (
-        <div>Loading order...</div>
+        <div className="text-white">Loading order...</div>
       )}
       {order && (
         <div className="grid md:grid-cols-2 md:gap-16">
-          <div>
+          <div className="text-white">
             {order.cartProducts.map(product => (
               <CartProduct key={product._id} product={product} />
             ))}
-            <div className="text-right py-2 text-gray-500">
-              Subtotal:
-              <span className="text-black font-bold inline-block w-8">LKR {subtotal}</span>
-              <br />
-              Delivery:
-              <span className="text-black font-bold inline-block w-8">LKR 200</span>
-              <br />
+            <div className="py-2 pl-16 flex justify-end items-center">
+            <div className="text-gray-200 text-left">
+              Subtotal:<br />
+              Delivery:<br />
               Total:
-              <span className="text-black font-bold inline-block w-8">
-                LKR {subtotal + 200}
-              </span>
+            </div>
+            <div className="text-white font-semibold pl-8 text-right">
+              LKR {subtotal}.00<br />
+              LKR &nbsp;200.00<br />
+              LKR {subtotal + 200}.00
             </div>
           </div>
+          </div>
           <div>
-            <div className="bg-gray-100 p-4 rounded-lg">
+            <div className="bg-secondary p-4 rounded-lg">
               <AddressInputs
                 disabled={true}
                 addressProps={order}
