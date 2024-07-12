@@ -90,14 +90,14 @@ export default function EditMenuItemPage(){
                 </Link>
             </div>
            <MenuItemForm menuItem={menuItem} onSubmit={handleFormSubmit}/>
-           <div className="max-w-md mx-auto mt-2">
-            <div className="max-w-xs ml-auto pl-4">
+           
+            <div className=" delete-button ml-80">
                 <DeleteButton
                  label="Delete this Menu Item"
                  onDelete={handleDeleteClick}
                 />
             </div>
-           </div>
+         
         </section>
     );
 }
