@@ -19,8 +19,8 @@ const images = [
 
 export default function hero(){
     return(
-        <section className="hero mt-4 mb-48">
-            <div className="py-12">
+        <section className="hero mb:mt-4 mb-48">
+            <div className="py-8 md:py-12">
                 <motion.h1 className="text-4xl font-semibold text-white"
                 initial={{ x: -300 }}
                 animate={{ x: 0 }}
@@ -36,7 +36,7 @@ export default function hero(){
                     Pizza is the missing piece that makes every day complete, a simple yet delicious joy in life
                 </p>
                 <div className="flex gap-4 text-sm">
-                    <button className="flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full hover:text-secondary border-primary">
+                    <button className="flex justify-center bg-primary uppercase items-center gap-2 text-white px-4 py-2 rounded-full hover:text-secondary border-primary">
                         Order Now
                         <Right />
                     </button>

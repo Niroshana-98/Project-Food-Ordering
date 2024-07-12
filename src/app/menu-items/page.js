@@ -41,7 +41,7 @@ export default function MenuItemsPage(){
                 <h2 className="text-sm text-gray-100 mt-8">Edit Menu Item :</h2>
                 <div className="grid grid-cols-4 gap-2 ">
                     {menuItems?.length > 0 && menuItems.map((item, index) => (
-                        <Link href={'/menu-items/edit/'+item._id} key={index} 
+                        <Link href={'/menu-items/edit/'+item._id} key={item._id} 
                             className="text-white bg-secondary rounded-lg p-6 hover:bg-primary flex-col group">
                             <div className="relative">
                                 <Image

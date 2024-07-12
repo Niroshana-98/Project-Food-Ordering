@@ -129,7 +129,7 @@ export default function CategoriesPage(){
                 <h2 className="mt-8 text-sm text-gray-100 mb-1">Existing Category:</h2>
                 {categories?.length > 0 && categories.map( c => (
                     <div
-                     key={c.id} 
+                     key={c._id} 
                      className="bg-gray-200 text-black font-semibold rounded-xl p-2 px-4 flex gap-1  mb-2 hover:bg-gray-500 items-center">
                         <div
                          className="grow">

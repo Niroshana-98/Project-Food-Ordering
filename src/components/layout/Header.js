@@ -64,7 +64,9 @@ export default function Header(){
             </div> 
           </div>
           {mobileNavOpen && (
-            <div className="md:hidden p-4 bg-secondary rounded-lg mt-2 flex flex-col gap-2 text-center font-semibold">
+            <div
+              onClick={() => setMobileNavOpen(false)}
+              className="md:hidden p-4 bg-secondary rounded-lg mt-2 flex flex-col gap-2 text-center font-semibold">
               <Link className="text-white hover:text-primary "href={'/'}>Home</Link>
               <Link className="text-white hover:text-primary"href={'/menu'}>Menu</Link>
               <Link className="text-white hover:text-primary"href={'/#about'}>About</Link>
