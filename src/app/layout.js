@@ -3,6 +3,9 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
 import {Toaster} from "react-hot-toast";
+import Image from 'next/image';
+import Link from "next/link";
+
 
 
 
@@ -23,8 +26,18 @@ export default function RootLayout({ children }) {
             <Toaster/>
             <Header />
             {children}
-            <footer className="border-t p-8 text-center text-gray-200 mt-16">
+            <footer className="border-t p-8 text-center text-gray-200 mt-32">
               &copy; 2024 All Rights Reserved
+              <div className="flex items-center space-x-2">
+                <span className="text-gray-600 text-sm sm:text-base">Design and Developed By</span>
+                <Link href={'https://www.linkedin.com/in/pasindu-niroshana-7a940225b/'}>
+                  <Image
+                   src={'/linkedin.png'} 
+                   width={20} height={20} 
+                   alt={'linkedin'}
+                   className="w-4 h-4 sm:w-6 sm:h-6"/>
+                </Link>
+              </div>
             </footer>
           </AppProvider>
         </main> 

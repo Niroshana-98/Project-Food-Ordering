@@ -46,10 +46,14 @@ export default function MenuItemForm({onSubmit,menuItem}){
                  onChange={ev => setName(ev.target.value)}
                 />
                 <label className="text-white">Description</label>
-                <input
+                <textarea
                  type="text"
                  value={description}
                  onChange={ev => setDescription(ev.target.value)}
+                 rows={3}
+                 cols={40}
+                 className="w-full px-3 py-2 text-secondary font-semibold border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500"
+                 placeholder="Enter description..."
                 />
                 <label  className="text-white">Category</label>
                 <select className="font-semibold text-gray-700" value={category} onChange={ev => setCategory(ev.target.value)}>

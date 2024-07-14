@@ -4,6 +4,7 @@ import Right from "../icons/Right";
 import React from "react";
 import Slideshow from "../Slideshow";
 import { motion } from 'framer-motion';
+import Link from "next/link";
 
 const images = [
     {
@@ -32,12 +33,14 @@ export default function hero(){
                         FOOD
                     </span>
                 </motion.h1>
-                <p className="my-6 text-white text-sm">
-                    Pizza is the missing piece that makes every day complete, a simple yet delicious joy in life
+                <p className="my-6 text-white text-sm font-semibold text-justify">
+                    Food 🍽️ completes our days with simple joys.
+                    From hearty soups 🍲 to fresh salads 🥗 and decadent desserts 🍰,
+                    food nourishes, delights, and connects us, turning moments into cherished memories 😊.
                 </p>
                 <div className="flex gap-4 text-sm">
                     <button className="flex justify-center bg-primary uppercase items-center gap-2 text-white px-4 py-2 rounded-full hover:text-secondary border-primary">
-                        Order Now
+                        <Link href={'/menu'}>Order Now</Link>
                         <Right />
                     </button>
                     <button className="flex items-center border-0 gap-2 py-2 text-white font-semibold hover:text-primary">
@@ -46,7 +49,7 @@ export default function hero(){
                     </button>
                 </div>
             </div>
-            <div className="relative">
+            <div className="relative mt-4">
                 {/*<Image src={'/pizza2.jpg'} layout={'fill'} objectFit={'contain'} alt={'coffe'} />*/}
                 <Slideshow images={images}/>
             </div>

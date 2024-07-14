@@ -76,7 +76,7 @@ export default function CartPage() {
     return (
       <section className="mt-8 text-center">
         <SectionHeaders mainHeader="Cart" />
-        <p className="mt-4">Your shopping cart is empty 😔</p>
+        <p className="text-white mt-4">Your shopping cart is empty 😔</p>
       </section>
     );
   }
@@ -89,13 +89,13 @@ export default function CartPage() {
       <div className="mt-8 grid gap-8 grid-cols-2">
         <div className="text-white">
           {cartProducts?.length === 0 && (
-            <div>No products in your shopping cart</div>
+            <div className="text-white">No products in your shopping cart</div>
           )}
           {cartProducts?.length > 0 && cartProducts.map((product, index) => (
             <CartProduct
               key={index}
               product={product}
-              //index={index}
+              index={index}
               onRemove={removeCartProduct}
             />
           ))}

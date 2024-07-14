@@ -78,7 +78,7 @@ export default function MenuItem(menuItem){
                                     <label key={size._id} className="flex items-center gap-2 p-4 border rounded-md mb-1">
                                         <input
                                          type="radio"
-                                         onClick={() => setSelectedSize(size)}
+                                         onChange={() => setSelectedSize(size)}
                                          checked={selectedSize?.name === size.name}
                                          name="size"/>
                                         <label htmlFor="size1" className="text-white">
@@ -95,7 +95,8 @@ export default function MenuItem(menuItem){
                                     <label key={extraThing._id} className="flex items-center gap-2 p-4 border rounded-md mb-1">
                                         <input
                                          type="checkbox" 
-                                         onClick={ev =>handleExtraThingClick(ev, extraThing)}
+                                         onChange={ev =>handleExtraThingClick(ev, extraThing)}
+                                         checked={selectedExtras.map(e=>e._id).includes(extraThing._id)}
                                          name={extraThing.name}/>
                                         <label htmlFor="size1" className="text-white">
                                             {extraThing.name } +LKR {extraThing.price}
