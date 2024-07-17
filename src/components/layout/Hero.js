@@ -16,6 +16,9 @@ const images = [
       {
         src: '/pizza2.jpg',
       },
+      {
+        src: '/1097928.jpg',
+      },
   ];
 
 export default function hero(){
@@ -49,13 +52,11 @@ export default function hero(){
                     </button>
                 </div>
             </div>
-            <div className="relative mt-4">
-                {/*<Image src={'/pizza2.jpg'} layout={'fill'} objectFit={'contain'} alt={'coffe'} />*/}
-                <Slideshow images={images}/>
+            <div className="relative mt-4 rounded-xl overflow-hidden">
+                <Slideshow images={images} />
             </div>
             
         </section>
     );
 }
- // }
- //export default hero;
+ 
