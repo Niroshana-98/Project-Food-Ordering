@@ -50,13 +50,13 @@ export default function Home() {
        transition={{ duration: 1, type: 'spring', stiffness: 120 }}
        className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
         <p className="text-white">
-        Welcome to Bacement Cafe. At Bacement Cafe, we believe that dining is not just about food; it’s an experience. Nestled in the heart of Galle, our restaurant combines flavors with warm hospitality. Whether you’re celebrating a special occasion or simply enjoying a meal with loved ones, we invite you to savor every moment with us.
+          At Bacement Cafe, we believe that dining is not just about food; it’s an experience. Nestled in the heart of Galle, our restaurant combines delicious flavors with warm hospitality. ❤️ Whether you’re celebrating a special occasion or simply enjoying a meal with loved ones, we invite you to savor every moment with us. 🎉👨‍👩‍👧‍👦
         </p>
         <p className="text-white">
-        Founded in 2015, Bacement Cafe has been a culinary destination for locals and tourists alike. Our journey began with a passion for Comfort Food. Over the years, we’ve evolved, but our commitment to quality ingredients, impeccable service, and a welcoming ambiance remains unwavering.
+          🍽️ Founded in 2015, Bacement Cafe 🍽️ has been a culinary destination for locals and tourists alike. 🌟 Our journey began with a passion for Comfort Food. Over the years, we’ve evolved, but our commitment to quality ingredients, impeccable service, and a welcoming ambiance remains unwavering. 🍔✨
         </p>
         <p className="text-white">
-        Our mission is simple - to create memorable dining experiences. From our carefully curated menu to our thoughtfully designed space, every detail reflects our dedication to excellence. We strive to be more than just a restaurant; we want to be a part of your cherished memories.
+          🎯 Our mission is simple - to create memorable dining experiences 🎯. From our carefully curated menu 📜🍽️ to our thoughtfully designed space 🛋️✨, every detail reflects our dedication to excellence. We strive to be more than just a restaurant; we want to be a part of your cherished memories. ❤️🍴
         </p>
       </motion.div>
       </Element>
